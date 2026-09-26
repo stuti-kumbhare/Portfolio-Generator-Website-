@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Portfolio Generator with Skill Bars, Experience & Certificates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar" id="topNavbar">
+    <div class="nav-left">
+      <div class="logo">Logo</div>
+    </div>
+    <ul class="nav-right">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#certificatesSection" class="nav-link">Certificates</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
+
+  <main class="app">
+    <!-- LEFT PANEL -->
+    <aside class="panel">
+      <h2>Fill Your Details</h2>
+
+      <label>Full Name</label>
+      <input id="nameInput" type="text" placeholder="Your Name">
+
+      <label>Profession / Title</label>
+      <input id="professionInput" type="text" placeholder="Web Designer">
+
+      <label>Short Bio</label>
+      <textarea id="bioInput" rows="3" placeholder="A short one-line bio..."></textarea>
+
+      <label>Contact Email</label>
+      <input id="contactEmailInput" type="email" placeholder="you@example.com">
+
+      <label>Hero Profile Photo</label>
+      <input id="photoInput" type="file" accept="image/*">
+
+      <label>About Section Photo</label>
+      <input id="aboutPhotoInput" type="file" accept="image/*">
+
+      <label>Background Image (optional)</label>
+      <input id="bgImageInput" type="file" accept="image/*">
+
+      <label>Background Color</label>
+      <input id="bgColorInput" type="color" value="#0f1720">
+
+      <label>Theme</label>
+      <select id="themeSelect">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+
+      <label>Education Entries</label>
+      <div id="educationInputsWrapper">
+        <div class="edu-input-row">
+          <input type="text" class="edu-year" placeholder="Year (e.g., 2018-2022)">
+          <input type="text" class="edu-title" placeholder="Degree / Course">
+          <input type="text" class="edu-desc" placeholder="Description">
+          <button type="button" class="edu-remove-btn">✕</button>
+        </div>
+      </div>
+      <button type="button" id="addEduBtn">Add Education</button>
+
+      <label>Experience Entries</label>
+      <div id="experienceInputsWrapper">
+        <div class="exp-input-row">
+          <input type="text" class="exp-year" placeholder="Year (e.g., 2020-2023)">
+          <input type="text" class="exp-title" placeholder="Company / Role">
+          <input type="text" class="exp-desc" placeholder="Description">
+          <button type="button" class="exp-remove-btn">✕</button>
+        </div>
+      </div>
+      <button type="button" id="addExpBtn">Add Experience</button>
+
+      <h2>Add Your Skills</h2>
+      <label>Skill Name</label>
+      <input type="text" id="skillName" placeholder="e.g., HTML">
+
+      <label>Skill Level (%)</label>
+      <input type="number" id="skillPercent" placeholder="0 - 100" min="0" max="100">
+
+      <label>Category</label>
+      <select id="skillCategory">
+        <option value="coding">Coding</option>
+        <option value="professional">Professional</option>
+      </select>
+
+      <h2>Add Projects</h2>
+      <div id="projectInputsWrapper">
+        <div class="project-input-row">
+          <input type="text" class="project-title" placeholder="Project Title">
+          <input type="text" class="project-desc" placeholder="Project Description">
+          <input type="text" class="project-link" placeholder="Project Link (URL)">
+          <input type="file" class="project-image" accept="image/*">
+          <button type="button" class="project-remove-btn">✕</button>
+        </div>
+      </div>
+      <button type="button" id="addProjectBtn">Add Project</button>
+
+      <h2>Add Certificates</h2>
+      <div id="certificateInputsWrapper">
+        <div class="certificate-input-row">
+          <input type="text" class="cert-title" placeholder="Certificate Title">
+          <input type="text" class="cert-org" placeholder="Issued By">
+          <input type="text" class="cert-year" placeholder="Year">
+          <input type="file" class="cert-image" accept="image/*">
+          <button type="button" class="cert-remove-btn">✕</button>
+        </div>
+      </div>
+      <button type="button" id="addCertificateBtn">Add Certificate</button>
+
+      <div class="panel-buttons">
+        <button id="generateBtn">Update Preview</button>
+        <button id="addSkillBtn">Add Skill</button>
+        <button id="downloadBtn">Download HTML</button>
+      </div>
+      <p class="note">Tip: Use "Update Preview" to see changes, then "Download HTML".</p>
+    </aside>
+
+    <!-- RIGHT PANEL -->
+    <section class="preview" id="previewArea">
+      <section id="home" class="hero preview-section">
+        <div class="hero-left">
+          <p class="intro">Hi, I'm <span id="previewName">Your Name</span></p>
+          <h1 id="previewTitle">Web Designer</h1>
+          <p id="previewBio" class="hero-desc">A short description about you will appear here.</p>
+        </div>
+        <div class="hero-right">
+          <div class="photo-wrap">
+            <img id="previewPhoto" src="" alt="Profile Photo">
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="preview-section about-section section-fade">
+        <div class="about-left">
+          <div class="about-photo-wrap">
+            <img id="aboutPhoto" src="https://via.placeholder.com/300x300" alt="Profile Photo">
+          </div>
+        </div>
+        <div class="about-right">
+          <h2>About Me</h2>
+          <h3 id="aboutTitle">Frontend Developer!</h3>
+          <p id="aboutText">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <a href="#contact" class="btn about-btn">Read More</a>
+        </div>
+      </section>
+
+      <section id="education" class="preview-section education-section section-fade">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+          <div id="education-list" class="education-list"></div>
+        </div>
+      </section>
+
+      <section id="skills" class="preview-section section-fade">
+        <h2>My Skills</h2>
+        <div class="skills-wrapper">
+          <div class="skills-column">
+            <h3>Coding Skills</h3>
+            <div id="codingSkills" class="skill-list"></div>
+          </div>
+          <div class="skills-column">
+            <h3>Professional Skills</h3>
+            <div id="professionalSkills" class="skill-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="preview-section experience-section section-fade">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+          <div id="experience-list" class="experience-list"></div>
+        </div>
+      </section>
+
+      <section id="projects" class="preview-section section-fade">
+        <h2>Projects</h2>
+        <div id="previewProjects" class="cards"></div>
+      </section>
+
+      <section id="certificatesSection" class="preview-section section-fade">
+        <h2>Certificates</h2>
+        <div id="previewCertificates" class="certificates-preview"></div>
+      </section>
+
+      <!-- ===================== CONTACT SECTION (Merged) ===================== -->
+      <section class="contact-section" id="contact">
+        <h2 class="contact-title">Contact Me</h2>
+        <div class="contact-form-container">
+          <form id="contactForm">
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <input type="text" name="phone" id="phone" placeholder="Phone" required>
+            <input type="email" name="email" id="email" placeholder="Email address" required>
+            <textarea name="message" id="message" rows="4" placeholder="Message" required></textarea>
+            <button type="submit" class="contact-btn">Send Message</button>
+          </form>
+
+          <p id="successMessage" style="display:none; color:green; font-weight:600;">
+            Message sent successfully!
+          </p>
+          <p id="errorMessage" style="display:none; color:red; font-weight:600;">
+            Error sending message! Please try again.
+          </p>
+        </div>
+      </section>
+
+      <footer class="preview-footer">© <span id="previewYear"></span> My Portfolio</footer>
+    </section>
+  </main>
+
+  <script>
+  // ===================== CONTACT FORM HANDLER =====================
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch("https://formspree.io/f/xwpwkdgn", {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          successMessage.style.display = "block";
+          contactForm.reset();
+        } else {
+          errorMessage.style.display = "block";
+        }
+      } catch (error) {
+        errorMessage.style.display = "block";
+      }
+    });
+  });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
