@@ -1,0 +1,7 @@
+Portfolio-Generator/
+│
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── assets/        (agar images hain)
